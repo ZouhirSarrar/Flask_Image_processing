@@ -1,4 +1,5 @@
-
+###ImSight
+## Python image search engine 
 This a web application, using Flask as the server, that allows you to
 to implement the basic functionality of an indexing system, and to
 search for images by content using colour-based descriptors
