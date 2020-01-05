@@ -1,4 +1,4 @@
-#ImSight
+# ImSight
 ## Python image search engine 
 This a web application, using Flask as the server, that allows you to
 to implement the basic functionality of an indexing system, and to
@@ -10,7 +10,7 @@ content consists of four phases:
 - Create our descriptors(Histogram calculation, Haralick filter, gabor filter)
 
 - The indexing phase, for the calculation of characteristics from the our dataset of images (famous places dataset)
-link :https://drive.google.com/uc?id=1Z7kDsK_7ko_1mMyAid92kQt-tlHQjh8Q&export=download
+[Dataset link](https://drive.google.com/uc?id=1Z7kDsK_7ko_1mMyAid92kQt-tlHQjh8Q&export=download)
 
 - Defining similarity using euclidean distance to compare our vectors that we already extracted.
 
