@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>ImSight</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+
+  <!-- Favicons -->
+  <!-- Google Fonts --> 
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
+
+  <!-- Main Stylesheet File -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.js">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+
+</head>
+<style type="text/css">
+  .masthead {
+  height: 90vh;
+  min-height: 500px;
+  background-image: url('https://source.unsplash.com/jJe9bx5uh-8/1920x1080');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+  .masthead2 {
+  height: 190vh;
+  min-height: 500px;
+  background-image: url('https://source.unsplash.com/QJGlPS16Vvo/1920x2000');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+/* Style the navbar */
+#navbar {
+  overflow: hidden;
+  background-color: #333;
+}
+
+/* Navbar links */
+#navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px;
+  text-decoration: none;
+}
+
+/* Page content */
+.content {
+  padding: 16px;
+}
+
+/* The sticky class is added to the navbar with JS when it reaches its scroll position */
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+/* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
+.sticky + .content {
+  padding-top: 60px;
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+</script>
+<script type="text/javascript">
+  window.onscroll = function() {myFunction()};
+
+// Get the navbar
+var navbar = document.getElementById("navbar");
+
+// Get the offset position of the navbar
+var sticky = navbar.offsetTop;
+
+// Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
+function myFunction() {
+  if (window.pageYOffset >= sticky) {
+    navbar.classList.add("sticky")
+  } else {
+    navbar.classList.remove("sticky");
+  }
+}
+</script>
+<script type="text/javascript">
+  // handle links with @href started with '#' only
+$(document).on('click', 'a[href^="#"]', function(e) {
+    // target element id
+    var id = $(this).attr('href');
+    
+    // target element
+    var $id = $(id);
+    if ($id.length === 0) {
+        return;
+    }
+    
+    // prevent standard hash navigation (avoid blinking in IE)
+    e.preventDefault();
+    
+    // top position relative to the document
+    var pos = $id.offset().top;
+    
+    // animated top scrolling
+    $('body, html').animate({scrollTop: pos});
+});
+</script>
+<body>
+
+  <!--==========================
+    Header
+  ============================-->
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow fixed-top">
+  <div class="container" id="home">
+    <a class="navbar-brand" href="#home">ImSight</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#upload">Upload
+              </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#project">About</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  <!--==========================
+    Intro Section
+  ============================-->
+<div class="bg-image"></div>
+<!-- Full Page Image Header with Vertically Centered Content -->
+<header class="masthead">
+  <div class="container h-100">
+    <div class="row h-100 align-items-center">
+      <div class="col-12 text-center">
+
+       <h1 class="display-1">ImSight</h1>
+        <h3 class="display-4">An image search engine</h3>
+      </div>
+    </div>
+  </div>
+</header>
+
+  <main id="main">
+
+
+
+    <!--==========================
+      About Us Section
+    ============================-->
+    <section class="py-5">
+  <div class="masthead2">
+        <div align="center" class="form-group" id="upload">
+          <form action="/upload-image" method="post" enctype="multipart/form-data" >
+               <input style=" padding-bottom: 100px; padding-top: 100px;" type="file" name="image" id="fileToUpload" >
+               <input type="submit" value="Upload Image" name="submit" class="btn btn-secondary">
+          </form>
+          <h3>Top 3 similar images</h3>
+        </div>
+
+    <div align="center" >
+          <div align="center" class="form-group">
+                    {% for j in image[1:4] %}
+                    <img src="../static/{{j}}">
+                    {% endfor %}
+        </div>
+          
+        </div>
+
+  </div>
+  <br/>  <br/>  <br/>
+<footer id="footer">
+    <div class="footer-top">
+      <div class="container">
+        <div class="row" id="project">
+
+          <div class="col-lg-3 col-md-6 footer-info">
+            <h3>ImSight</h3>
+            <p>An image search engine using Content-Based Image Retrieval (CBIR) systems</p>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-links">
+            <h4>Useful Links</h4>
+            <ul>
+              <li><i class="ion-ios-arrow-right"></i> <a href="https://drive.google.com/uc?id=1Z7kDsK_7ko_1mMyAid92kQt-tlHQjh8Q&export=download">Database download page</a></li>
+              <li><i class="ion-ios-arrow-right"></i> <a href="http://places2.csail.mit.edu">Another dataset</a></li>
+              <li><i class="ion-ios-arrow-right"></i> <a href="https://opencv.org">Opencv</a></li>
+
+            </ul>
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-contact">
+            <h4>Contact Us</h4>
+
+
+            <div class="social-links">
+              <a href="https://github.com/ZouhirSarrar" class="Github">Github<i class="fa fa-github"></i></a><br/>
+              <a href="behance.net/zouhirsarrar" class="Behance">Behance<i class="fa fa-behance"></i></a><br/>
+              <a href="https://www.linkedin.com/in/zouhir-sarrar-299592159/" class="linkedin">LinkedIn<i class="fa fa-linkedin"></i></a>
+            </div>
+
+          </div>
+
+          <div class="col-lg-3 col-md-6 footer-newsletter">
+            <h4>Author</h4>
+            <p>Zouhir SARRAR</p>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+      </div>
+    </div>
+  </footer><!-- #footer -->
+
+
+
+</body>
+</html>
