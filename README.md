@@ -10,7 +10,7 @@ content consists of four phases:
 - Create our descriptors(Histogram calculation, Haralick filter, gabor filter)
 
 - The indexing phase, for the calculation of characteristics from the our dataset of images (famous places dataset)
-[Dataset link](https://drive.google.com/uc?id=1Z7kDsK_7ko_1mMyAid92kQt-tlHQjh8Q&export=download)
+[Dataset link](https://drive.google.com/uc?id=1Z7kDsK_7ko_1mMyAid92kQt-tlHQjh8Q&export=download) (copy all images from this link in databse folder)
 
 - Defining similarity using euclidean distance to compare our vectors that we already extracted.
 
