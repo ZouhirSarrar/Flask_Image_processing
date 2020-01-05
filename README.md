@@ -17,3 +17,7 @@ content consists of four phases:
 - The search phase, which consists in extracting the vector of descriptors of
 the requested image and compare it with the vectors of the calculated descriptors.
 
+![WebApp](/templates/1.png)
+![Output](/templates/2.png)
+
+
